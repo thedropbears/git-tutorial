@@ -12,10 +12,10 @@ Press the 'fork' button in the top right-hand side of github.
 This will download a copy of your personal repo onto your computer.
 You can use this to start hacking.
 On your computer run the command:
-git clone git@github.com:<your-username>/git-tutorial.git
+git clone https://github.com/<your-username>/git-tutorial.git
 
 ie if your username is 'iloverobots' then you would run:
-git clone git@github.com:iloverobots/git-tutorial.git
+git clone https://github.com/iloverobots/git-tutorial.git
 
 You'll end up with a directory called git-tutorial.
 This is where you do your work.
@@ -26,7 +26,7 @@ We also want to be able to get other people's changes from the master repo.
 We do this by adding a 'remote' in git parlance. We already have a default
 remote (called 'origin').
 Run this command:
-git remote add ldu git@github.com:YouthRoboticsIncorporated/git-tutorial.git
+git remote add ldu https://github.com/YouthRoboticsIncorporated/git-tutorial.git
 
 This will add a remote called 'ldu'.
 
