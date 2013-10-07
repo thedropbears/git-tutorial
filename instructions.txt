@@ -20,6 +20,9 @@ git clone https://github.com/iloverobots/git-tutorial.git
 You'll end up with a directory called git-tutorial.
 This is where you do your work.
 
+Then move into your repository
+cd git-tutorial
+
 * Set up a link to the master repo.
 By default your personal repo on github is the 'origin'
 We also want to be able to get other people's changes from the master repo.
