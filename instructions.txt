@@ -78,15 +78,6 @@ git rebase ldu/master
 
 You should do this periodically when you are working to make any conflicts easier to resolve.
 
-Now we go back to the master branch and merge in our changes.
-git checkout master
-git merge my-feature
-git branch -D my-feature
-
-The first line changes to the master branch.
-The second line merges our work (this will be a 'fast-forward' commit as it just gets stuck on the end).
-The third line delete the branch we were working on to keep things tidy.
-
 * Push to your repo
 Up to now, all of your changes are on your computer. You need to put them where people can see them
 and integrate them into their work.
@@ -109,10 +100,9 @@ Pull from the main repo (ldu), and push to your personal repo.
 Then one of the admins will pull your changes from your repo onto the main (ldu) repo.
 Keep your repo up to date as you work with plenty of 'git fetch ldu' and rebase your work with
 'git rebase ldu/master'
-Fast-forward merge and push.
+Push your work (still on your branch, not on master!).
 
 * Further reading
-The Git Book is really good at explaining the detail.
 http://git-scm.com/book
 
 * Suggestions
