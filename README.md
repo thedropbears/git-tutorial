@@ -112,7 +112,7 @@ Pull from 'dropbears':
 Delete your local branch:
   git branch -D new-feature
 Delete branch on your fork:
-  git push :new-feature
+  git push origin :new-feature
 
 
 * Further reading
