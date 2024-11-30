@@ -2,41 +2,24 @@ Git Tutorial
 
 To use this repo you should do the following:
 
-* Fork the repo on github.
-This gives you your own copy to mess about with.
-The copy here is the 'official' source and can't be changed directly.
-At this point you'll have a copy of the repo on github, but that's not much use for coding...
-Press the 'fork' button in the top right-hand side of github.
 
-* Clone your repo.
-This will download a copy of your personal repo onto your computer.
+* Clone the repo.
+This will download a copy of the repo onto your computer.
 You can use this to start hacking.
 On your computer run the command:
-  git clone git@github.com:<your-username>/git-tutorial.git
-
-ie if your username is 'iloverobots' then you would run:
-  git clone git@github.com:iloverobots/git-tutorial.git
+  git clone git@github.com:thedropbears/git-tutorial.git
 
 You'll end up with a directory called git-tutorial.
 This is where you do your work.
-
-* Set up a link to the master repo.
-By default your personal repo on github is the 'origin'
-We also want to be able to get other people's changes from the master repo.
-We do this by adding a 'remote' in git parlance. We already have a default
-remote (called 'origin').
-Run this command:
-  git remote add dropbears git@github.com:thedropbears/git-tutorial.git
-
-This will add a remote called 'dropbears'.
 
 * Do some work.
 You should always work on a branch, and not on master.
 Master is where we go when we have finished.
 
-But first we check that master is up to date with the official repo (ldu):
-  git pull dropbears master
-That tells git to get all the changes from the remote 'dropbears' and the branch 'master' on that remote.
+But first we check that master is up to date with the remote repo (ldu):
+  git pull origin master
+That tells git to get all the changes from the remote 'origin' and the branch 'master' on that remote.
+In this case "git pull" would also suffice as by default it has the parameters "origin" and "master", however, once you have branched this will be replaced with "origin" and "branch_name"
 
 Now we create a new branch to do our work:
   git checkout -b new-feature
@@ -71,21 +54,21 @@ It is possible that while we have been working someone has made a change to the 
 We want our commits added to the end of that, otherwise stuff gets confusing.
 
 Check for updates to ldu:
-  git fetch dropbears
+  git fetch origin
 
 Put our changes at the end of the master branch on ldu (that we just updated).
-  git rebase dropbears/master
+  git rebase origin/master
 
 You should do this periodically when you are working to make any conflicts easier to resolve.
 
-* Push to your repo
+* Push to the repo
 Up to now, all of your changes are on your computer. You need to put them where people can see them
 and integrate them into their work.
-You 'push' them up onto your personal repo on github.
+You 'push' them up onto your the repo on github.
 
   git push
 
-By default git push pushes to origin (your repo).
+By default git push pushes to origin your_branch.
 You can also do:
   git push <remote> <branch>
 to push to a specific remote.
