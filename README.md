@@ -92,13 +92,23 @@ For this branch you should call it `<your_name>/add_name_to_repo`
 Now we can make our changes. Edit the file called `names.txt` and add your name.
 
 ## Commit Your Code
+A commit is essentially a save checkpoint, which denotes the changes that have been made to the file. A commit can be made by running:
 
+```bash
+  git add names.txt # stages files for the commit
+  git commit -m "Added my name to the names file" # commits the files with a message
+```
+In the first line:
+` git
 We need to save our work. We call this 'committing'. Each commit is a change that we've made.
 Don't bunch different changes together - each commit should refer to only one self-contained change.
 Bunching heaps of stuff together is called patch-bombing and it's bad.
 We want commits to be small so we can review and understand them and reject ones we don't like
 without getting rid of all the other changes.
 You can't accept part of a commit - it's all or nothing.
+The first two lines tell git which changed files we want included in our commit.
+The third line makes the commit. The -m flag adds a message.
+
 ```bash
   git add names.txt
   git commit -m "Added my name to the names file"
