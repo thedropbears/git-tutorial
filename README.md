@@ -1,6 +1,16 @@
 # Git Tutorial
 
-To use this repo you should do the following:
+This guide serves as a brief outline on the Team's git workflow. If you follow along you will likely have exercised using all the commands we commonly use. You also get to add your name to our 'guest book' so people know you were on the team at some point!
+
+The broad steps for working in the team are:
+
+- Clone the code (Download)
+- Do some Work
+- Commit your code (Save)
+- Clean your History (Rebase)
+- Push your code (Upload)
+- Make a pull request (Review and Merge)
+- Clean up
 
 ## Clone the repo
 
