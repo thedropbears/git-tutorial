@@ -16,7 +16,7 @@ This is where you do your work.
 You should always work on a branch, and not on main.
 main is where we go when we have finished.
 
-But first we check that main is up to date with our local copy ():
+But first we check that our local copy is up to date with main (origin):
   git pull origin main
 That tells git to get all the changes from the remote 'origin' and the branch 'main' on that remote.
 In this case "git pull" would also suffice as by default it has the parameters "origin" and "main", however, once you have branched this will be replaced with "origin" and "branch_name"
@@ -27,7 +27,6 @@ This creates a branch called 'new-feature'. You can have as many branches as you
 
 We do our stuff.
 Edit the file called 'names.txt' and add your name.
-Also create a subdirectory with your name and put something in it.
 
 We need to save our work. We call this 'committing'. Each commit is a change that we've made.
 Don't bunch different changes together - each commit should refer to only one self-contained change.
