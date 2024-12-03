@@ -48,37 +48,50 @@ Now you can run the `clone` command to create a copy of the repo in the director
 
 ## Do Some Work
 
-<!-- Mention Branches and how they are different working states of the code -->
-<!-- Start by checking out main and making sure it is up to date -->
-You should always work on a branch, and not on main.
-main is where we go when we have finished.
+When using git, we work on 'branches'. Branches are a series of different save states of code with potentially different change history. The default branch, often called `main`, is the most up to date source of truth, with current reviewed and working code. We never work directly on the main branch, instead we create other branches dedicated to issues or new features. Any new branch can then be merged into the `main` branch to update it with the new source of truth.
 
-But first we check that our local copy main is up to date with the remote repo (origin):
+Start by ensuring we are on the default branch. This will be the point we make a new branch from.
 
 ```bash
-  git pull origin main
+git checkout main
 ```
 
-That tells git to get all the changes from the remote `origin` and the branch `main` on that remote.
-In this case `git pull` would also suffice as by default it has the parameters `origin` and `main`, however, once you have branched this will be replaced with `origin` and `branch_name`
+We must check that our local copy of main is up to date with the upstream repository.
 
-<!-- Create a new branch for your feature -->
-<!-- mention that it should reflect what you want to do -->
-<!-- mention that it should not contain spaces or strange chars just - or _ in p ace of spaces-->
-<!-- dont make it too long -->
-<!-- prefix the branch with your name -->
+```bash
+git pull origin main
+```
 
+Once again we can break this down:
+- git -> Keyword to execute the git program
+- pull -> Command to download new changes from the remote repo and apply them if it can
+- origin -> Parameter specifying the remote (online) repository. Origin is special and will be wherever you cloned the repo from
+- main -> Second parameter specifying the branch to get from a remote. In this case we are pulling from main
 
-Now we create a new branch to do our work:
+Running `git pull` alone would also work in this case for a first time clone. Without the extra parameters, the command assumes the origin remote and whatever branch you are currently on. A freshly cloned repository will be on the default branch, which is `main` for us.
+
+Now we can create a new branch to do our work:
 
 ```bash
   git checkout -b new-feature
 ```
 
-This creates a branch called `new-feature`. You can have as many branches as you want.
+- git -> Keyword to execute git program
+- checkout -> Command to change to a new branch
+- -b -> Extra parameter specifying to create a new branch while changing
+- new-feature -> Branch to switch to
 
-We do our stuff.
-Edit the file called `names.txt` and add your name.
+When naming branches, there are a few guidelines that should be followed:
+- Names should reflect what work will be happening in the branch
+- Names should not contain spaces or other strange characters, replace any spaces that may be needed with - or _
+- Make the name short and to the point
+- Names should be prefixed with your name
+
+For this branch you should call it `<your_name>/add_name_to_repo`
+
+Now we can make our changes. Edit the file called `names.txt` and add your name.
+
+## Commit Your Code
 
 We need to save our work. We call this 'committing'. Each commit is a change that we've made.
 Don't bunch different changes together - each commit should refer to only one self-contained change.
@@ -86,9 +99,6 @@ Bunching heaps of stuff together is called patch-bombing and it's bad.
 We want commits to be small so we can review and understand them and reject ones we don't like
 without getting rid of all the other changes.
 You can't accept part of a commit - it's all or nothing.
-
-## Let's Commit
-
 ```bash
   git add names.txt
   git commit -m "Added my name to the names file"
@@ -106,6 +116,7 @@ Have a look at the log:
 Your commit should be there.
 
 ## Rebase and merge.
+
 It is possible that while we have been working someone has made a change to the dropbears repo.
 We want our commits added to the end of that, otherwise stuff gets confusing.
 
