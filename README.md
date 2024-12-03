@@ -13,13 +13,13 @@ You'll end up with a directory called git-tutorial.
 This is where you do your work.
 
 * Do some work.
-You should always work on a branch, and not on master.
-Master is where we go when we have finished.
+You should always work on a branch, and not on main.
+main is where we go when we have finished.
 
-But first we check that master is up to date with the remote repo (ldu):
-  git pull origin master
-That tells git to get all the changes from the remote 'origin' and the branch 'master' on that remote.
-In this case "git pull" would also suffice as by default it has the parameters "origin" and "master", however, once you have branched this will be replaced with "origin" and "branch_name"
+But first we check that main is up to date with our local copy ():
+  git pull origin main
+That tells git to get all the changes from the remote 'origin' and the branch 'main' on that remote.
+In this case "git pull" would also suffice as by default it has the parameters "origin" and "main", however, once you have branched this will be replaced with "origin" and "branch_name"
 
 Now we create a new branch to do our work:
   git checkout -b new-feature
@@ -53,11 +53,11 @@ Your commit should be there.
 It is possible that while we have been working someone has made a change to the dropbears repo.
 We want our commits added to the end of that, otherwise stuff gets confusing.
 
-Check for updates to ldu:
+Check for updates to the main:
   git fetch origin
 
-Put our changes at the end of the master branch on ldu (that we just updated).
-  git rebase origin/master
+Put our changes at the end of the main branch (that we just updated).
+  git rebase origin/main
 
 You should do this periodically when you are working to make any conflicts easier to resolve.
 
@@ -82,14 +82,14 @@ The short version of this is:
 Pull from the main repo (dropbears), and push to your personal repo.
 Then one of the admins will pull your changes from your repo onto the main (dropbears) repo.
 Keep your repo up to date as you work with plenty of 'git fetch dropbears' and rebase your work with
-'git rebase dropbears/master'
-Push your work (still on your branch, not on master!).
+'git rebase dropbears/main'
+Push your work (still on your branch, not on main!).
 
 * Cleaning up
-After your commits have been accepted and put onto the master branch of 'dropbears' you
+After your commits have been accepted and put onto the main branch of 'dropbears' you
 can delete your local topic branch and the topic branch on your GitHub fork.
-Change back to the master branch:
-  git checkout master
+Change back to the main branch:
+  git checkout main
 Pull from 'dropbears':
   git pull dropbears
 Delete your local branch:
