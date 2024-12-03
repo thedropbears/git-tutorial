@@ -56,6 +56,12 @@ Start by ensuring we are on the default branch. This will be the point we make a
 git checkout main
 ```
 
+Breaking this down:
+
+- git -> Keyword to execute git program
+- checkout -> Command to change to a new branch
+- main -> Branch to switch to
+
 We must check that our local copy of main is up to date with the upstream repository.
 
 ```bash
