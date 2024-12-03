@@ -12,20 +12,44 @@ The broad steps for working in the team are:
 - Make a pull request (Review and Merge)
 - Clean up
 
-## Clone the repo
+## Clone the Repo
 
-This will download a copy of the repo onto your computer.
-You can use this to start hacking.
-On your computer run the command:
+Cloning is a special form of download within git. It is a process for registering your download for later reuploading and contributing to a code project.
+
+Run the following command in a terminal instance to clone this repo:
 
 ```bash
-  git clone git@github.com:thedropbears/git-tutorial.git
+git clone git@github.com:thedropbears/git-tutorial.git
 ```
 
-You'll end up with a directory called git-tutorial.
-This is where you do your work.
+You can break this down into a series of keywords to better understand the operation
 
-## Do some work
+- git -> The primary command word to execute the git program
+- clone -> the subcommand so we are about to clone something
+- the url -> the online repository to download the code from, in this case it is this tutorial repository
+
+You'll end up with a directory called git-tutorial where you called the clone operation. This is where you do your work.
+
+**NOTE: Make sure you run this clone command in a known location and one that you want to work in going forward.**
+
+**When opening a terminal from the applications menu, it will open in your home directory by default. The absolute path of this on Windows is normally `C:/users/<your user name>` and `/home/<your user name>` on Linux/MacOS. It will contain folders for your `Desktop`, `Documents`, `Downloads`, etc. We suggest moving to a place you can more easily access because you will be using it a lot!**
+
+**Use and adjust the following to suit your preferences:**
+
+``` bash
+ls # ls stands for list to check what files and folders are at the current location.
+# Check you really are in home!
+cd Desktop # cd stands for change directory. We are changing directory to the Desktop
+mkdir robotics # mkdir stands for make directory. We are making a new directory called robotics on the Desktop
+cd robotics # change into the newly created robotics directory
+```
+
+Now you can run the `clone` command to create a copy of the repo in the directory you just navigated to.
+
+## Do Some Work
+
+<!-- Mention Branches and how they are different working states of the code -->
+<!-- Start by checking out main and making sure it is up to date -->
 You should always work on a branch, and not on main.
 main is where we go when we have finished.
 
@@ -37,6 +61,13 @@ But first we check that our local copy main is up to date with the remote repo (
 
 That tells git to get all the changes from the remote `origin` and the branch `main` on that remote.
 In this case `git pull` would also suffice as by default it has the parameters `origin` and `main`, however, once you have branched this will be replaced with `origin` and `branch_name`
+
+<!-- Create a new branch for your feature -->
+<!-- mention that it should reflect what you want to do -->
+<!-- mention that it should not contain spaces or strange chars just - or _ in p ace of spaces-->
+<!-- dont make it too long -->
+<!-- prefix the branch with your name -->
+
 
 Now we create a new branch to do our work:
 
