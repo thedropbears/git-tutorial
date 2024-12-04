@@ -154,32 +154,19 @@ git commit -m "added my name to the names file"
 - -m -> Extra parameter specifying that the commit will contain a message string following it
 - "added my name to the names file" -> The commit message string 
 
-In the first line:
-` git
-We need to save our work. We call this 'committing'. Each commit is a change that we've made.
-Don't bunch different changes together - each commit should refer to only one self-contained change.
-Bunching heaps of stuff together is called patch-bombing and it's bad.
-We want commits to be small so we can review and understand them and reject ones we don't like
-without getting rid of all the other changes.
-You can't accept part of a commit - it's all or nothing.
-The first two lines tell git which changed files we want included in our commit.
-The third line makes the commit. The -m flag adds a message.
+When you make your first commit in a repository, it will ask you to set your name and email. These will be signed on your commits, showing it was you that made them. To set your name, run `git config user.name "<Your Name>"` and to set your email run `git config user.email "<Your Email>"`
 
-```bash
-  git add names.txt
-  git commit -m "Added my name to the names file"
-```
+When making commits, it is extremley important to have clear and meaningful commit messages, people read commits to understand what is happening in the code. The difference between a good and ok programmer can be seen in the quality of their commit messages. 
 
-The first two lines tell git which changed files we want included in our commit.
-The third line makes the commit. The -m flag adds a message.
+Now that we have made our commit, we can check the commit history using `git log`, this will show all commits within the history of the branch, including those from `main` before you created the branch. If you go all the way back, you can see the first commit made to this repository by James Ward in 2013.
 
-Have a look at the log:
+If you prefer a more visual interface for viewing commit histories, as well as viewing the changes made in each commit, you can use a program called gitk. For windows users, gitk comes bundled with git.
 
-```bash
-  git log
-```
+For Mac users, run `brew install git-gui` to install gitk
 
-Your commit should be there.
+For Linux users, run `sudo apt-get install git-gui gitk`
+
+To use gitk, in a terminal run `gitk` to view the view the current branches history or `gitk --all` to view all repository commit history.
 
 ## Clean Your History
 
