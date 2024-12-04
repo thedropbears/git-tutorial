@@ -101,49 +101,27 @@ Now we can make our changes. Edit the file called `names.txt` and add your name.
 
 ## Commit Your Code
 
-<!-- Mention that is isnt enough just to save the changes to share them -->
-<!-- Enter the commit! -->
-<!-- Commits can and should often contain changes to multiple files if they are a part of the same change -->
-<!-- Commits should still remain small and self contained to a single change -->
-<!-- People will often view and track the commit history to contextualise the evolution of a project -->
+It isn't enough to just save your files to share them with the rest of the team. We must go through the process of commiting instead. A commit can be thought of as a save checkpoint designated when changing one or many files. A commit is also accompanied by a message outlining what was changed in the process.
 
-<!-- Start by doing a git status to see what files have been changed -->
-<!-- note that things are unstaged so they wont be added to a commit when we try to do it -->
-<!-- We are only expecting to change the names.txt file, make sure to undo anything else! -->
-<!-- stage the change with git add -->
-<!-- run git status again and note the change is now staged-->
-<!-- commit -->
-<!-- breakdown commit command -->
-<!-- make sure to add that there is a coupling between -m and the following string -->
+It is common to make many commits on a single branch when writing a new feature or fixing an issue. Commits should be small and made often. People will often look at the commit history to contextualise all of the changes made on a branch to accomplish a feature or fix. Commits can and should contain changes to multiple files at once if they are a part of the same change. This doesnt mean you should implement one massive feature altering the entire codebase in a single commit. That is called patch bombing, and it is bad. It makes things very hard to review which only slows down the cadence of development.
 
-<!-- note that it is important to have a meaningful commit message -->
-<!-- add some sassy shade on how people do read these things and how it can reflect the quality of the programmer when its just junk -->
-
-<!-- inspect the command with git log -->
-<!-- add note on usage of gitk/gitg to visualise the git graph. gitk is installed by default on windows with a git bash install. Mac and linux users will need to install one themselves -->
-When working with git, it isn't enough to just save your files to share them with the rest of the repository. In order to share changes, commits must be made. A commit is essentially a save checkpoint, which denotes the changes that have been made to the file.
-
-Commits should be contained to single changes and made often. People will often look at the commit history to contextualise and grasp an understanding of the changes that have been made within your working branch. **Note: This does not mean that commits cannot contain multiple files, in fact they should if they are part of the same change.** 
-
-Once we have made our changes, we must first check what files have been modified. To do this, run:
+Now that we have made our changes, it is often a good idea to first double check that there are only changes where we expect them. We do this with:
 
 ```bash
 git status
 ```
 
-When committing files, modified files will be `staged` or `not staged` for a commit. Staged files will be contained within the next commit, whilst not staged files will be ignored.
+`git status` will show files in three states; untracked when git sees something new that it doesnt know about yet, unstaged when there are changes to files that git knows about that wont be included in the next commit and staged for files that git knows have changed and will be included in the next commit. Anything else is considered unchanged or ignored.
 
-Once `git status` is run, it will show the files that have been modified but are currently unstaged and those that are staged. As we have only modified the names.txt file, it will appear as unstaged and should be the only modified file.
-
-To stage the file for commit, we run:
+We are only expecting changes to the `names.txt` file. It should come up as unstaged because it is already in git's version control. To stage it run the following:
 
 ```bash
 git add names.txt
 ```
 
-This will `stage` the `names.txt` file for committing in the next stage. Running `git status` again should now show the `names.txt` file as staged and ready to commit.
+It is possible to stage multiple files at once with wildcards (the `*` operator), so `*.txt` would stage all txt files at once if there were others but in this case it is better to be explicit.
 
-Now we can make a commit by running:
+`names.txt` should now be staged. Check this by running `git status` again. if it is you are now ready to commit with:
 
 ```bash
 git commit -m "added my name to the names file"
@@ -151,153 +129,127 @@ git commit -m "added my name to the names file"
 
 - git -> Keyword to execute git program
 - commit -> Command to create a snapshot of the currently staged changes within the branch timeline
-- -m -> Extra parameter specifying that the commit will contain a message string following it
-- "added my name to the names file" -> The commit message string 
+- -m -> Extra parameter specifying that the following string will be the the commit message
+- "added my name to the names file" -> The commit message 
 
-When you make your first commit in a repository, it will ask you to set your name and email. These will be signed on your commits, showing it was you that made them. To set your name, run `git config user.name "<Your Name>"` and to set your email run `git config user.email "<Your Email>"`
+When you make your first commit in a repository, it will ask you to set your name and email. This information forms part of the commit meta data so everyone can see who made the change. Follow the instructions in your terminal and run
 
-When making commits, it is extremley important to have clear and meaningful commit messages, people read commits to understand what is happening in the code. The difference between a good and ok programmer can be seen in the quality of their commit messages. 
+``` bash
+git config user.name "<Your Name>"
+git config user.email "<Your Email>"
+```
+
+Commits must have clear and meaningful commit messages! People read commit messages to understand what is happening in the code for review and very likely again 6 months later when trying to understand why a change was even necessessary. The quality of programmer is very clearly refected in the quality of their commit messages, so try to make them good! 
 
 Now that we have made our commit, we can check the commit history using `git log`, this will show all commits within the history of the branch, including those from `main` before you created the branch. If you go all the way back, you can see the first commit made to this repository by James Ward in 2013.
 
 If you prefer a more visual interface for viewing commit histories, as well as viewing the changes made in each commit, you can use a program called gitk. For windows users, gitk comes bundled with git.
 
-For Mac users, run `brew install git-gui` to install gitk
+For Mac users
 
-For Linux users, run `sudo apt-get install git-gui gitk`
+```
+brew install git-gui
+```
+
+For Linux users
+
+```
+sudo apt-get install gitk
+```
 
 To use gitk, in a terminal run `gitk` to view the view the current branches history or `gitk --all` to view all repository commit history.
 
 ## Clean Your History
 
-<!-- We believe that code should always be done with respect to the latest main -->
-<!-- History may have progressed in the time its taken you to write your feature or solve an issue -->
-<!-- Rebasing is a way of replaying a series of commits off another set of history as if it was done that way the whole time -->
-<!-- Sounds nice in theory but you will get conflicts if you and someone else have touched the same parts of code -->
-<!-- Some of you will have to deal with this right now! -->
+We believe that code should always be done with respect to the latest available main. However, the main might progress while you are working. Rebasing is a mechanism to replay a set of commits ontop of another set as if they were there the whole time. This is nice in theory but sometimes we run into merge conflicts because two parts of history have made changes to the same code and git needs you to decide what is good and what is bad. Some of you are very likely about to experience merge conflicts if someone signed their name before you.
 
-<!-- start by fetching -->
-<!-- break down the command -->
-<!-- identify it is different to pull because it will not do a merge -->
-<!-- the remote branch and the local branch may now not be aligned. This is ok -->
-<!-- use gitk/gitg to visualise this to see if its true -->
-
-<!-- rebase off origin/main just in case-->
-
-<!-- resolve the merge conflict if if there is one -->
-<!-- git status will now show which files have merge conflicts -->
-<!-- git will display two versions of history, current and incoming -->
-<!-- current is what is in main now and incoming is your set of changes -->
-<!-- you can accept one, the other, both or do something totally different to solve the problem -->
-<!-- remove the extra junk characters and fix the change to how it should be -->
-<!-- Remember the intent here is to add your name to the log and not delete anyone elses entry -->
-<!-- Stage the resolved conflict  -->
-<!-- continue the rebase -->
-
-<!-- You should try to regularly rebase while developing to avoid a build up of conflicts. -->
-<!-- It can be really hard to solve if too much has changed while waiting for your feature -->
-
-It is possible that while we have been working someone has made a change to the dropbears repo.
-We want our commits added to the end of that, otherwise stuff gets confusing.
-
-Check for updates to the main:
+Lets fetch before rebasing so we can use the latest main like we said we should. Fetching is similar to pulling but it wont automatically update your branch with any retrieved changes.
 
 ```bash
-  git fetch origin
+git fetch
 ```
 
-Put our changes at the end of the main branch (that we just updated).
+- git -> Calls the git program
+- fetch -> Command to download data from a remote repository
+
+By default, `fetch` will pull all data from the origin remote, however parameters for a specific remote and branch can be specified such as `git fetch <remote> <branch>`
+
+After doing this, the head of main and the point at which your branch splits off will be mismatched. This can be visualised by running `gitk --all`.
+
+Now we can run:
 
 ```bash
-  git rebase origin/main
+git rebase origin/main
 ```
 
-You should do this periodically when you are working to make any conflicts easier to resolve.
+This will place our commits at the head of the origin/main branch, making it seem as if the new main commits were made before we even branched off.
 
-## Push to the repo
+When encountering a merge conflict, the rebase process will pause and tell you where the issue is. Running `git status` will also tell you which files have merge conflicts. To fix the issue, navigate to the conflicting files. In these files there will be two versions of this file, one being current (what is currently on main) and the other being what is incoming (your changes). To resolve this issue, you can simply delete the incoming or current versions or mix and match the versions. Once you are done solving the conflict, the file should look as if it never had the two versions in it, removing all extra funky characters.
 
-<!-- changes are only on your local machine right now -->
-<!-- they need to be uploaded before anyone else can review and add your code to the default branch -->
-<!-- enter le git push -->
-<!-- break down the command -->
-<!-- git will reject the push the first time because it doesnt know where to push to -->
-<!-- Follow the terminals instructions and add the --set-upstream things -->
-<!-- break down the command -->
+Remember our intent when solving the merge conflict. We want to add our name to `names.txt` but not remove anyone elses. Our change should reflect that.
 
-Up to now, all of your changes are on your computer. You need to put them where people can see them
-and integrate them into their work.
-You 'push' them up onto your the repo on github.
+Once we have resolved the merge conflicts, we can restage the file by doing `git add names.txt` and then continue the rebase with `git rebase --continue`.
+
+When editing, you should fetch, rebase and merge your changes frequently to make solving merge conflicts quicker and easier, instead of trying to do it all in one chunk.
+
+## Push Your Code
+
+As of now, all the work you have done is only available locally. It needs to be uploaded before anyone can can review and add your code to the main branch.
+
+To do this we run:
+```bash
+git push
+```
+
+- git -> Exectues the git program
+- push -> Puts a copy of your commit history onto the remote repository
+
+By default, git pushes to `<origin>` `<branch_name>`, however `remote` and `branch` parameters can also be used
+
+If it is the first time pushing, git will reject the push as there is currently no branch in the origin remote that matches your local branch, so, we must create one. To create a remote branch, run:
 
 ```bash
-  git push
+git push --set-upstream origin <name_of_your_branch>
 ```
 
-By default git push pushes to origin your_branch.
-You can also do:
+- --set-upstream -> Command to create a remote branch for your branch
+- origin -> Parameter, telling it to create a branch in the origin remote
+- name_of_your_branch -> Parameter saying to create a branch of a specific name
 
-```bash
-  git push <remote> <branch>
-```
+The terminal will also give you instructions to do this, simply run the command it gives you.
 
-to push to a specific remote.
+If you need to push again the the future a simple `git push` should suffice.
 
-## Get your work onto the main repo
+## Make a Pull Request
 
-<!-- Make le PR -->
-<!-- use the link generated in the terminal if its the first time pushing -->
-<!-- Otherwise go to github ->pull requests ->new pr -> set proper base and target branch -->
-<!-- Let someone know you have made a pr, tag tyhem as a reviewer, message them on slack or send an email -->
-<!-- people should be checking email and slack regularly as the common modes of comm on the team but slack might be faster in most cases -->
+To merge our modified remote branch into the remote main, we create what is called a Pull Request or PR. A PR essentially outlines all commits you have made on the branch and allows others to view, make suggestions and approve the changes. Once approved, the PR can be merged into the main branch.
 
-Send a pull request to your Section Leaders.
-You can do this via github, or email or on IRC. We normally use email, and not GitHub.
+When pushing your changes for the first time, git will automatically generate a pull request for you to submit, simply click the link in the terminal and follow the directions in the webpage. Once a pull request is created for your branch, you can continue adding to it by using `git push`.
 
-## That's it
+If it is not the first push, you can manually create a PR by going to the repository on github -> pull requests -> new pr. Make sure you set the correct base branch and target branch.
 
-<!-- I think we can remove this in its current form -->
-
-The short version of this is:
-Pull from the main repo (dropbears), and push to your personal repo.
-Then one of the admins will pull your changes from your repo onto the main (dropbears) repo.
-Keep your repo up to date as you work with plenty of `git fetch dropbears` and rebase your work with
-`git rebase dropbears/main`
-Push your work (still on your branch, not on main!).
+Once you have created a PR, let someone know by requesting their review through github, messaging them on slack or sending them an email. People should often be checking both their email and slack, however, slack is often the faster method of communication.
 
 ## Cleaning up
 
-<!-- once the branch is merged you can prepare your main for the next feature -->
-<!-- checkout -->
-<!-- pull -->
-<!-- and delete the local branch -->
-<!-- Break down the command -->
-<!-- Note the capital D. It is important vs a lowercase one. I challenge you to read the docs @Asher and find out why. I am going to quiz you on it :p -->
-<!-- We have auto delete setup for upstream things so they dont need to worry about that anymore -->
+Once your branch has been merged into main, you can prepare your local main for a new feature. First, run `git checkout main` to switch back to the main branch. Run a `git pull` to get the most up to date version from the remote repo.
 
-After your commits have been accepted and put onto the main branch of 'dropbears' you
-can delete your local topic branch and the topic branch on your GitHub fork.
-Change back to the main branch:
+Now, you can delete your local editing branch by running
 
 ```bash
-git checkout main
+git branch -d <your_branch_name>
 ```
 
-Pull from 'dropbears':
+- git -> Executes the git program
+- branch -> Command to list, create or delete branches
+- -d -> Parameter to delete a branch
+- your_branch_name -> Parameter teeling the command what branch to delete 
 
-```bash  
-git pull dropbears
-```
+## That's it
 
-Delete your local branch:
+Congratulations! you have successfully cloned, branched, modified, merged and pushed your first bit of Drop Bears code.
 
-```bash  
-git branch -D new-feature
-```
-
-Delete branch on your fork:
-
-```bash
-git push origin :new-feature
-```
+Welcome To The Software Team
 
 ## Further reading
 
@@ -307,6 +259,9 @@ git push origin :new-feature
 
 Feel free to edit this, and make a pull request if you think it could be better! ;)
 
-LM 03 Dec 24
-AB 04 Dec 24
-JRW 02 Nov 13
+
+## Contributors
+
+- AB 04 Dec 24
+- LM 03 Dec 24
+- JRW 02 Nov 13
