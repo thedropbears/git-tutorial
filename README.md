@@ -121,13 +121,38 @@ Now we can make our changes. Edit the file called `names.txt` and add your name.
 
 <!-- inspect the command with git log -->
 <!-- add note on usage of gitk/gitg to visualise the git graph. gitk is installed by default on windows with a git bash install. Mac and linux users will need to install one themselves -->
+When working with git, it isn't enough to just save your files to share them with the rest of the repository. In order to share changes, commits must be made. A commit is essentially a save checkpoint, which denotes the changes that have been made to the file.
 
-A commit is essentially a save checkpoint, which denotes the changes that have been made to the file. A commit can be made by running:
+Commits should be contained to single changes and made often. People will often look at the commit history to contextualise and grasp an understanding of the changes that have been made within your working branch. **Note: This does not mean that commits cannot contain multiple files, in fact they should if they are part of the same change.** 
+
+Once we have made our changes, we must first check what files have been modified. To do this, run:
 
 ```bash
-  git add names.txt # stages files for the commit
-  git commit -m "Added my name to the names file" # commits the files with a message
+git status
 ```
+
+When committing files, modified files will be `staged` or `not staged` for a commit. Staged files will be contained within the next commit, whilst not staged files will be ignored.
+
+Once `git status` is run, it will show the files that have been modified but are currently unstaged and those that are staged. As we have only modified the names.txt file, it will appear as unstaged and should be the only modified file.
+
+To stage the file for commit, we run:
+
+```bash
+git add names.txt
+```
+
+This will `stage` the `names.txt` file for committing in the next stage. Running `git status` again should now show the `names.txt` file as staged and ready to commit.
+
+Now we can make a commit by running:
+
+```bash
+git commit -m "added my name to the names file"
+```
+
+- git -> Keyword to execute git program
+- commit -> Command to create a snapshot of the currently staged changes within the branch timeline
+- -m -> Extra parameter specifying that the commit will contain a message string following it
+- "added my name to the names file" -> The commit message string 
 
 In the first line:
 ` git
