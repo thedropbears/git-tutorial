@@ -18,9 +18,13 @@ Asher "Beana" Broadhead (Skipper 2023-202X)
 Callum
 loz
 <<<<<<< HEAD
+<<<<<<< HEAD
 LHowe
 Angus
 Calvin O.
 =======
 Calvin O.
 >>>>>>> 2f8828a (added name Calvin O. again to the names file)
+=======
+Calvin O.
+>>>>>>> 2f8828aa4320c8a555ccc265445b9eda59b0dee8
