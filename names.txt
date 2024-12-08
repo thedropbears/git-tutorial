@@ -20,10 +20,6 @@ loz
 LHowe
 Angus
 jaob
-<<<<<<< HEAD
 raf
 DannyP
-
-=======
 Alley
->>>>>>> a5398d0 (added my name to the names file)
