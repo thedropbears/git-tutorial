@@ -220,6 +220,12 @@ The terminal will also give you instructions to do this, simply run the command 
 
 If you need to push again the the future a simple `git push` should suffice.
 
+**NOTE: In order to complete this step, you must have a github account setup and be added to our organisation**
+
+Follow the steps here to create an account: https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account
+
+Once done, please ask a team member with admin permissions to add you to the organisation.
+
 ## Make a Pull Request
 
 To merge our modified remote branch into the remote main, we create what is called a Pull Request or PR. A PR essentially outlines all commits you have made on the branch and allows others to view, make suggestions and approve the changes. Once approved, the PR can be merged into the main branch.
