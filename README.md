@@ -221,7 +221,7 @@ The terminal will also give you instructions to do this, simply run the command 
 If you need to push again the the future a simple `git push` should suffice.
 
 > [!NOTE]
-In order to complete this step, you must have a github account setup and be added to our organisation**
+In order to complete this step, you must have a github account setup and be added to our organisation
 
 Follow the steps here to create an account: https://docs.github.com/en/get-started/onboarding/getting-started-with-your-github-account
 
