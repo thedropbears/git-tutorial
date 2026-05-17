@@ -135,8 +135,8 @@ git commit -m "added my name to the names file"
 When you make your first commit in a repository, it will ask you to set your name and email. This information forms part of the commit meta data so everyone can see who made the change. Follow the instructions in your terminal and run
 
 ``` bash
-git config user.name "<Your Name>"
-git config user.email "<Your Email>"
+git config --global user.name "<Your Name>"
+git config --global user.email "<Your Email>"
 ```
 
 Commits must have clear and meaningful commit messages! People read commit messages to understand what is happening in the code for review and very likely again 6 months later when trying to understand why a change was even necessessary. The quality of programmer is very clearly refected in the quality of their commit messages, so try to make them good! 
