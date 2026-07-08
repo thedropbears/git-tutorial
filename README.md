@@ -275,6 +275,7 @@ Feel free to edit this, and make a pull request if you think it could be better!
 
 ## Contributors
 
+- Kiam 07 Jul 26
 - AB 04 Dec 24
 - LM 03 Dec 24
 - JRW 02 Nov 13
