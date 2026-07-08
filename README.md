@@ -220,6 +220,12 @@ The terminal will also give you instructions to do this, simply run the command 
 
 If you need to push again the the future a simple `git push` should suffice.
 
+If you'd like to have an upstream setup automatically with the same name as your local branch, run the following to edit your git config (the `--global` flag can be added, similar to earlier):
+
+```bash
+git config push.autoSetupRemote true
+```
+
 > [!NOTE]
 In order to complete this step, you must have a github account setup and be added to our organisation
 
@@ -269,6 +275,7 @@ Feel free to edit this, and make a pull request if you think it could be better!
 
 ## Contributors
 
+- Kiam 07 Jul 26
 - AB 04 Dec 24
 - LM 03 Dec 24
 - JRW 02 Nov 13
