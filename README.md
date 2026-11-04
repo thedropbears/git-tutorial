@@ -42,6 +42,7 @@ ls # ls stands for list to check what files and folders are at the current locat
 cd Desktop # cd stands for change directory. We are changing directory to the Desktop
 mkdir robotics # mkdir stands for make directory. We are making a new directory called robotics on the Desktop
 cd robotics # change into the newly created robotics directory
+cd git-tutorial # change into the cloned directory
 ```
 
 Now you can run the `clone` command to create a copy of the repo in the directory you just navigated to.
@@ -129,7 +130,7 @@ git commit -m "added my name to the names file"
 
 - git -> Keyword to execute git program
 - commit -> Command to create a snapshot of the currently staged changes within the branch timeline
-- -m -> Extra parameter specifying that the following string will be the the commit message
+- -m -> Extra parameter specifying that the following string will be the commit message
 - "added my name to the names file" -> The commit message 
 
 When you make your first commit in a repository, it will ask you to set your name and email. This information forms part of the commit meta data so everyone can see who made the change. Follow the instructions in your terminal and run
@@ -218,7 +219,7 @@ git push --set-upstream origin <name_of_your_branch>
 
 The terminal will also give you instructions to do this, simply run the command it gives you.
 
-If you need to push again the the future a simple `git push` should suffice.
+If you need to push again the future a simple `git push` should suffice.
 
 If you'd like to have an upstream setup automatically with the same name as your local branch, run the following to edit your git config (the `--global` flag can be added, similar to earlier):
 
